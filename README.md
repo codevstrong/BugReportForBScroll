@@ -1,19 +1,11 @@
-# MeRoadNet
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+#### bug描述
+1. 条件
+上滑滚动区域，触底后让其自然恢复，此时触底会触发一次`pullingUp`，使用`setTimeout`模拟事件结束时间
+2. bug产生
+点击回到顶部时，如果上一次的上拉加载事件已经完成（此场景为2s后），那么会在此触发一次`pullingUp`事件。
+3. 测试
+在PC端Firefox和真实手机端均测试过，结果是每次使用按钮返回顶部时，都会触发一次pullingUp事件。
+后续使用scrollTo(x, 0, 500)，满足bug产生条件时，设置不同的x值，也会触发一次pullingUp事件
+4. 总结
+我太难了，为了提交这次报告，在`Issue Helper`上写的很详细，之后准备提交发现必须还要有复现场景，，，
+只好再copy一个简易的场景来复现了（本来想放弃的，但是发现都已经写这么多内容了，只好继续硬着头皮干完剩下部分，学生党容易么我(-_-)）
