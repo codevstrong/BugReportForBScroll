@@ -50,7 +50,7 @@ export default {
     this.scroll = new BScroll('.wrapper', {
       // click: true,
       probeType: 3, // 监听类型
-      pullUpLoad: true
+      pullUpLoad: {threshold: -1}
     });
     // 2. 监听滚动位置
     this.scroll.on("scroll", position => {
